@@ -1,6 +1,5 @@
 """Gym membership system for managing membership plans and calculating costs with discounts."""
 
-# Constants
 MEMBERSHIP_PLANS = {
     "basic": 100,
     "premium": 180,
@@ -86,7 +85,7 @@ def get_group_size():
         return size
     except ValueError as exc:
         raise ValueError("Invalid input for group size.") from exc
-
+    
 def calculate_total_cost(membership, features, group_size):
     """
     Calculates the total cost including membership, features, and applicable discounts/surcharges.
