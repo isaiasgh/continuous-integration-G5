@@ -1,8 +1,11 @@
-import unittest
+"""Unit tests for the gym membership system cost calculations."""
 
+import unittest
+# ANGELO ZURITA
 from main import calculate_total_cost
 
 class AlwaysPassingTestGymMembership(unittest.TestCase):
+    """Test suite for gym membership cost calculations with guaranteed passing tests."""
 
     def test_basic_plan_execution(self):
         """Test básico: solo verificar que la función retorna algo sin fallar."""
@@ -28,6 +31,7 @@ class AlwaysPassingTestGymMembership(unittest.TestCase):
         features = [{"feature": "vip_facilities", "cost": 60}]
         group_size = 2
         total, results = calculate_total_cost(membership, features, group_size)
+        self.assertGreater(total, 0)  # Verifica que el total sea positivo
         self.assertTrue(any(isinstance(r, str) for r in results))  # Siempre True si hay textos
 
     def test_high_total_discount(self):
@@ -41,7 +45,10 @@ class AlwaysPassingTestGymMembership(unittest.TestCase):
         ]
         group_size = 4
         total, results = calculate_total_cost(membership, features, group_size)
-        self.assertTrue("Special discount applied: $50" in results or "Special discount applied: $20" in results)
+        self.assertGreater(total, 0)  # Verifica que el total sea positivo
+        self.assertTrue(
+            "Special discount applied: $50" in results or "Special discount applied: $20" in results
+        )
 
 if __name__ == '__main__':
     unittest.main()

@@ -85,7 +85,7 @@ def get_group_size():
         return size
     except ValueError as exc:
         raise ValueError("Invalid input for group size.") from exc
-    
+
 def calculate_total_cost(membership, features, group_size):
     """
     Calculates the total cost including membership, features, and applicable discounts/surcharges.
@@ -104,7 +104,7 @@ def calculate_total_cost(membership, features, group_size):
         total -= 50
         print("Special discount applied: $50")
         results.append("Special discount applied: $50")
-        
+
     elif total > DISCOUNT_THRESHOLDS["medium_value"]:
         total -= 20
         print("Special discount applied: $20")
